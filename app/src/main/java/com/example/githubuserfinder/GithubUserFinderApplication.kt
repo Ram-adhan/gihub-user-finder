@@ -5,11 +5,10 @@ import com.example.githubuserfinder.di.ApplicationComponent
 import com.example.githubuserfinder.di.DaggerApplicationComponent
 
 class GithubUserFinderApplication : Application() {
-    lateinit var injector: ApplicationComponent
-
+    lateinit var appComponent: ApplicationComponent
 
     override fun onCreate() {
         super.onCreate()
-        injector = DaggerApplicationComponent.create()
+        appComponent = DaggerApplicationComponent.create()
     }
 }

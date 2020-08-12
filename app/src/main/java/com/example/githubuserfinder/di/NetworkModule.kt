@@ -3,6 +3,7 @@ package com.example.githubuserfinder.di
 import com.example.githubuserfinder.BuildConfig
 import com.example.githubuserfinder.data.ApiService
 import com.example.githubuserfinder.data.HeaderInterceptor
+import com.example.githubuserfinder.data.repository.SearchRepository
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -43,4 +44,10 @@ class NetworkModule {
     @Singleton
     fun provideApiService(retrofit: Retrofit): ApiService =
         retrofit.create(ApiService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideSearchRepository(apiService: ApiService): SearchRepository {
+        return SearchRepository(apiService)
+    }
 }

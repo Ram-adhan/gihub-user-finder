@@ -2,6 +2,7 @@ package com.example.githubuserfinder.di
 
 import com.example.githubuserfinder.BuildConfig
 import com.example.githubuserfinder.data.ApiService
+import com.example.githubuserfinder.data.HeaderInterceptor
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -15,16 +16,15 @@ import javax.inject.Singleton
 class NetworkModule {
     @Provides
     @Singleton
-    fun provideOkhttp(): OkHttpClient {
+    fun provideOkhttp(
+        headerInterceptor: HeaderInterceptor
+    ): OkHttpClient {
         val timeOut = 30L
         return OkHttpClient().newBuilder()
             .addInterceptor(HttpLoggingInterceptor().apply {
-                level = if (BuildConfig.DEBUG) {
-                    HttpLoggingInterceptor.Level.BODY
-                } else {
-                    HttpLoggingInterceptor.Level.NONE
-                }
+                level = HttpLoggingInterceptor.Level.BODY
             })
+            .addInterceptor(headerInterceptor)
             .readTimeout(timeOut, TimeUnit.SECONDS)
             .build()
     }

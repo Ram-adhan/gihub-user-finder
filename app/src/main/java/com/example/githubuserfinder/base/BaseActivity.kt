@@ -10,6 +10,7 @@ abstract class BaseActivity: AppCompatActivity() {
         setContentView(getLayoutResource())
         setupLibrary()
         setupIntent()
+        setupUI()
         setupProcess()
         setupAction()
     }
@@ -19,6 +20,8 @@ abstract class BaseActivity: AppCompatActivity() {
     protected open fun setupLibrary() {}
 
     protected open fun setupIntent() {}
+
+    protected open fun setupUI() {}
 
     protected open fun setupProcess() {}
 

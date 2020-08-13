@@ -4,5 +4,6 @@
     <string name="empty_info">Click on magnifying button to start searching</string>
     <string name="search_hint">Search Github users</string>
     <string name="profile_image">profile image</string>
-    <string name="type_the_username_you_want_to_search">Type the username you want to search</string>
+    <string name="starting_main_info">Type the username you want to search</string>
+    <string name="no_user_found">No user found</string>
 </resources>

@@ -1,7 +1,7 @@
 package com.example.githubuserfinder.data.repository
 
 import com.example.githubuserfinder.data.ApiResponse
-import com.example.githubuserfinder.data.ApiService
+import com.example.githubuserfinder.data.rest.ApiService
 import javax.inject.Inject
 
 class SearchRepository @Inject constructor(

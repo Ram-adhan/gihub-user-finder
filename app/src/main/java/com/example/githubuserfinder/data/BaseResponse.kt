@@ -1,4 +1,4 @@
-package com.example.githubuserfinder.base
+package com.example.githubuserfinder.data
 
 import com.google.gson.annotations.SerializedName
 

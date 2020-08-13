@@ -1,7 +1,6 @@
-package com.example.githubuserfinder.data
+package com.example.githubuserfinder.data.rest
 
-import android.telecom.Call
-import com.example.githubuserfinder.base.BaseResponse
+import com.example.githubuserfinder.data.BaseResponse
 import com.example.githubuserfinder.model.User
 import retrofit2.Response
 import retrofit2.http.GET

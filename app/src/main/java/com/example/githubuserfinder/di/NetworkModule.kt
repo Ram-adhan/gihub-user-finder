@@ -1,8 +1,8 @@
 package com.example.githubuserfinder.di
 
 import com.example.githubuserfinder.BuildConfig
-import com.example.githubuserfinder.data.ApiService
-import com.example.githubuserfinder.data.HeaderInterceptor
+import com.example.githubuserfinder.data.rest.ApiService
+import com.example.githubuserfinder.data.rest.HeaderInterceptor
 import com.example.githubuserfinder.data.repository.SearchRepository
 import dagger.Module
 import dagger.Provides
@@ -42,7 +42,8 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideHeaderInterceptor() = HeaderInterceptor()
+    fun provideHeaderInterceptor() =
+        HeaderInterceptor()
 
     @Provides
     @Singleton

@@ -22,9 +22,6 @@ class NetworkModule {
     ): OkHttpClient {
         val timeOut = 30L
         return OkHttpClient().newBuilder()
-            .addInterceptor(HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BODY
-            })
             .addInterceptor(headerInterceptor)
             .readTimeout(timeOut, TimeUnit.SECONDS)
             .build()

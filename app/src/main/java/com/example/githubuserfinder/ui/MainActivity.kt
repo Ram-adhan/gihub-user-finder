@@ -141,11 +141,6 @@ class MainActivity : BaseActivity(), UserAdapter.OnLoadMoreListener {
                     hideProgressBar()
                     when (it.status) {
                         Resource.Status.SUCCESS -> {
-                            if (userAdapter.itemCount < 1){
-                                showMainInfo()
-                            }else{
-                                hideMainInfo()
-                            }
                             if(!it.data?.items.isNullOrEmpty()){
                                 if (isLoadMore){
                                     userAdapter.setLoadMoreProgress(false)
@@ -162,6 +157,11 @@ class MainActivity : BaseActivity(), UserAdapter.OnLoadMoreListener {
                                     userAdapter.clearData()
                                 }
                             }
+                            if (userAdapter.itemCount < 1){
+                                showMainInfo()
+                            }else{
+                                hideMainInfo()
+                            }
                         }
                         Resource.Status.LOADING -> {
                         }
@@ -169,7 +169,6 @@ class MainActivity : BaseActivity(), UserAdapter.OnLoadMoreListener {
                             hideMainInfo()
                             when (it.code) {
                                 999 -> {
-                                    userAdapter.clearData()
                                     showMainInfo(getString(R.string.cannot_reach_server))
                                 }
                                 403 -> {

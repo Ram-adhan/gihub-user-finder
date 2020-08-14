@@ -11,8 +11,8 @@ abstract class BaseActivity: AppCompatActivity() {
         setupLibrary()
         setupIntent()
         setupUI()
-        setupProcess()
         setupAction()
+        setupProcess()
     }
 
     protected abstract fun getLayoutResource(): Int

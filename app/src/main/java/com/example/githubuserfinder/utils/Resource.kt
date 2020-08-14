@@ -1,6 +1,6 @@
 package com.example.githubuserfinder.utils
 
-data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
+data class Resource<out T>(val status: Status, val data: T?, val message: String?, val code: Int?) {
     enum class Status {
         SUCCESS,
         ERROR,
@@ -9,15 +9,15 @@ data class Resource<out T>(val status: Status, val data: T?, val message: String
 
     companion object {
         fun <T> success(data: T): Resource<T> {
-            return Resource(Status.SUCCESS, data, null)
+            return Resource(Status.SUCCESS, data, null, null)
         }
 
-        fun <T> error(message: String, data: T? = null): Resource<T> {
-            return Resource(Status.ERROR, data, message)
+        fun <T> error(message: String, data: T? = null, code: Int): Resource<T> {
+            return Resource(Status.ERROR, data, message, code)
         }
 
         fun <T> loading(data: T? = null): Resource<T> {
-            return Resource(Status.LOADING, data, null)
+            return Resource(Status.LOADING, data, null, null)
         }
     }
 }

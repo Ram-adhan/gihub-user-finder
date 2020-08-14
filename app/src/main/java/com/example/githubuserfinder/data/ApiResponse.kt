@@ -12,13 +12,13 @@ abstract class ApiResponse {
                 val body = response.body()
                 if (body != null) return Resource.success(body)
             }
-            return error("${response.code()} ${response.message()}")
+            return error("${response.code()} ${response.message()}", response.code())
         } catch (e: Exception) {
             return error(e.message ?: e.toString())
         }
     }
 
-    private fun <T> error(message: String): Resource<T> {
-        return Resource.error("Network call failed, reason: $message")
+    private fun <T> error(message: String, code: Int = 999): Resource<T> {
+        return Resource.error("Network call failed, reason: $message", code = code)
     }
 }
